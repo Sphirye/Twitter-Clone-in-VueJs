@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+
+    <v-main>
+
+      <SiderbarComponent/>
+
+      <router-view/>
+
+    </v-main>
+
+  </v-app>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator"
+import SiderbarComponent from "./components/SidebarComponent.vue"
+import XD from './assets/blocked.json'
+
+@Component({
+  components: { SiderbarComponent }
+})
+
+export default class App extends Vue {
+
+  created() {
+    console.log(XD)
+  }
+
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.full-width{
+  width: 100%;
 }
 
-#nav {
-  padding: 30px;
+.full-height{
+  height: 100%;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

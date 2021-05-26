@@ -1,7 +1,7 @@
 <template>
   <v-app>
 
-    <v-main>
+    <v-main class="grey lighten-2">
 
       <SiderbarComponent/>
 
@@ -15,17 +15,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
 import SiderbarComponent from "./components/SidebarComponent.vue"
-import XD from './assets/blocked.json'
 
 @Component({
   components: { SiderbarComponent }
 })
 
 export default class App extends Vue {
-
-  created() {
-    console.log(XD)
-  }
 
 }
 </script>

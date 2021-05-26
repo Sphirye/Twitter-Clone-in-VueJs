@@ -1,16 +1,21 @@
 <template>
-  <hello-world />
+  <div>
+    <div v-for="(item, key) in Store.tweets" :key="key">
+      <TweetComponent :tweet="item"/>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import HelloWorld from '../components/HelloWorld.vue'
+import { Component, Vue } from "vue-property-decorator"
+import TweetComponent from '../components/TweetComponent.vue'
+import Store from '@/assets/Store.json'
 
-  export default Vue.extend({
-    name: 'Home',
+@Component({
+  components: { TweetComponent }
+})
 
-    components: {
-      HelloWorld,
-    },
-  })
+export default class Home extends Vue {
+  Store = Store
+}
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="grey lighten-2">
     <div v-for="(item, key) in Store.tweets" :key="key">
       <TweetComponent :tweet="item"/>
     </div>

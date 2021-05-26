@@ -1,9 +1,52 @@
 {
     "tweets": [
-        { "body":"tweet 1" },
-        { "body":"tweet 2" },
-        { "body":"tweet 3" },
-        { "body":"tweet 4" },
-        { "body":"tweet 5" }
+        {
+            "userId": 1,
+            "body": "Tweet 1"
+        },
+        {
+            "userId": 2,
+            "body":"tweet 2"
+        },
+        {
+            "userId": 3,
+            "body":"tweet 3"
+        },
+        {
+            "userId": 4,
+            "body":"tweet 4"
+        },
+        {
+            "userId": 5,
+            "body":"tweet 5"
+        }
+    ],
+
+    "users": [
+        {
+            "id": 1,
+            "username": "User 1",
+            "tag": "User1"
+        },
+        {
+            "id": 2,
+            "username": "User 2",
+            "tag": "User2"
+        },
+        {
+            "id": 3,
+            "username": "User 3",
+            "tag": "User3"
+        },
+        {
+            "id": 4,
+            "username": "User 4",
+            "tag": "User4"
+        },
+        {
+            "id": 5,
+            "username": "User 5",
+            "tag": "User5"
+        }
     ]
 }

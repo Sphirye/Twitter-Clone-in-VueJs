@@ -3,7 +3,7 @@
 
     <v-main>
 
-      <SiderbarMenuComponent/>
+      <NavigationDrawerComponent/>
 
       <router-view/>
 
@@ -14,11 +14,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
-import SiderbarMenuComponent from "./components/SidebarMenuComponent.vue"
+import NavigationDrawerComponent from "./components/NavigationDrawerComponent.vue"
 import UserService from "@/services/UserService"
 
 @Component({
-  components: { SiderbarMenuComponent }
+  components: { NavigationDrawerComponent }
 })
 
 export default class App extends Vue {

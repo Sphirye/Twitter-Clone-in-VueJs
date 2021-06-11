@@ -10,6 +10,7 @@
     "@mdi/font": "5.9.55",
     "axios": "^0.21.1",
     "fs": "0.0.1-security",
+    "json2typescript": "^1.4.1",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.4",

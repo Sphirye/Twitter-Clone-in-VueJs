@@ -1,0 +1,139 @@
+<template>
+    <v-container fluid class="pa-0 ma-0">
+        <v-row no-gutters>
+            <v-col cols="8">
+                <v-row no-gutters class="white" style="position: sticky; top: 0; z-index: 1;">
+                    <v-col cols="12">
+                        <div class="d-flex align-center mx-3 my-1">
+                            <v-btn icon x-large>
+                                <v-icon color="blue"> mdi-arrow-left </v-icon>
+                            </v-btn>
+                            
+                            <div class="d-flex flex-column mx-5">
+                                <span class="font-weight-bold text-h6">{{user.username}}</span>
+                                <span class="text--secondary">10 tweets</span>
+                            </div>
+                        </div>
+                        <v-divider/>
+                    </v-col>
+                </v-row>
+
+                <v-row no-gutters class="ma-0">
+                        <v-img class="info" width="100%" height="250px"></v-img>
+                </v-row>
+
+                <v-row no-gutters>
+                    <div class="d-flex align-center full-width">
+                        <v-avatar size="180px" style="margin-top: -90px; border: 3px solid white;" class="mx-5" rounded="50%">
+                            <v-img class="info"/>
+                        </v-avatar>
+                        
+                        <v-spacer/>
+
+                        <v-btn rounded class="mx-5 my-auto" outlined color="blue">
+                            Editar perfil
+                        </v-btn>
+                    </div>
+                </v-row>
+
+                <v-row no-gutters>
+                    <div class="full-width mx-8">
+
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-black text-h5">{{user.username}}</span>
+                            <span class="text--secondary">@{{user.tag}}</span>
+                        </div>
+
+                        <div class="mt-2">
+                            <p>{{user.bio}}</p>
+                        </div>
+
+                        <div>
+                            <div class="d-flex">
+                                <span><v-icon>mdi-map-marker</v-icon>desaparecido en accion</span>
+                                <span class="mx-5"><v-icon>mdi-link-variant</v-icon>trucoteca.com</span>
+                            </div>
+
+                            <div class="d-flex">
+                                <span><v-icon>mdi-balloon</v-icon>Fecha de nacimiento: 00/00/0000</span>
+                                <span class="mx-5"><v-icon>mdi-calendar-month-outline</v-icon>Se unió en Junio de 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </v-row>
+
+                <v-row no-gutters>
+                    <v-tabs v-model="tab" centered>
+
+                        <v-tab v-for="(tab, key) in tabs" :key="key">
+                                {{tab.title}}
+                        </v-tab>
+                        
+
+                        <v-tabs-items v-model="tab">
+
+                            <v-divider/>
+
+                            <v-tab-item>
+                                <div v-for="(tweet, key) in tweets" :key="key">
+                                    <TweetComponent :tweet="tweet"/>
+                                </div>
+                            </v-tab-item>
+
+                            <v-tab-item>
+                                reply
+                            </v-tab-item>
+
+                            <v-tab-item>
+                                media
+                            </v-tab-item>
+
+                            <v-tab-item>
+                                likes
+                            </v-tab-item>
+
+                        </v-tabs-items>
+                    </v-tabs>
+                    <v-divider/>
+                </v-row>
+            </v-col>
+
+            <v-col cols="4">        
+            </v-col>
+        </v-row>
+
+    </v-container>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator"
+import UserService from "@/services/UserService"
+import TweetService from "@/services/TweetService"
+
+import { User } from "@/model/User"
+import TweetComponent from "@/components/TweetComponent.vue"
+import { Tweet } from "@/model/Tweet"
+
+@Component({
+  components: { TweetComponent }
+})
+
+export default class ProfileUser extends Vue {
+
+    tab: any = null
+
+    tweets: Tweet[] = []
+
+    tabs: any = {
+        "tweets": { title: "Tweets" },
+        "replys": { title: "Tweets y respuestas" },
+        "media": { title: "Fotos y videos" },
+        "likes": { title: "Me gusta" }
+    }
+    user: User = new User()
+
+    created() {
+        UserService.findByUserTag(this, this.$route.params.userTag)
+    }
+}
+</script>

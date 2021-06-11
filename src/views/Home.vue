@@ -22,7 +22,7 @@
               <div class="my-3" style="width: 90%;">
                 <div>
                   <div style="width: 90%;" class="d-flex">
-                    <v-textarea flat solo auto-grow rows="1" label="Whats happening?"></v-textarea>
+                    <v-textarea flat solo auto-grow rows="1" label="¿Que esta pasando?"></v-textarea>
                   </div>
 
                   <div class="d-flex">
@@ -68,46 +68,12 @@
 
       <v-col cols="4">
         <div class="d-flex align-center justify-center">
-          <v-text-field :value="XD" placeholder="Search in Twitter..." outlined rounded prepend-inner-icon="mdi-magnify" class="mt-3 mx-2">
+          <v-text-field :value="XD" placeholder="Buscar en Twitter..." outlined rounded prepend-inner-icon="mdi-magnify" class="mt-3 mx-2">
             
           </v-text-field>
         </div>
 
-        <div class="d-flex align-center justify-center">
-          <v-card class="grey lighten-3 mx-5" width="100%" rounded="xl" flat>
-            <v-card-title>
-              <span>Tredings for you</span>
-              <v-spacer/>
-              <v-btn icon>
-                <v-icon color="blue">mdi-cog-outline</v-icon>
-              </v-btn>
-            </v-card-title>
-
-            <v-divider/>
-
-            <div v-for="(item, key) in tredings" :key="key">
-              <v-list-item three-line>
-                <v-list-item-content>
-                      <v-list-item-subtitle>Tendencia en</v-list-item-subtitle>
-                      <v-list-item-title class="font-weight-bold">Titulo</v-list-item-title>
-                      <v-list-item-subtitle>0 tweets</v-list-item-subtitle>
-                </v-list-item-content>
-                <v-list-item-action>
-                      <v-btn icon>
-                        <v-icon> mdi-dots-horizontal </v-icon>
-                      </v-btn>
-                </v-list-item-action>
-              </v-list-item>
-              <v-divider/>
-            </div>
-
-            <v-card-actions>
-              <v-btn text class="text-none" @click="bruh">
-                <span class="blue--text">Mostrar más</span>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </div>
+        <TredingsComponent :tredings="tredings"/>
 
       </v-col>
     </v-row>
@@ -118,20 +84,17 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
 import TweetComponent from '../components/TweetComponent.vue'
+import TredingsComponent from "@/components/TredingsComponent.vue";
 import Store from '@/assets/Store.json'
 
 @Component({
-  components: { TweetComponent }
+  components: { TweetComponent, TredingsComponent }
 })
 
 export default class Home extends Vue {
 
-  bruh() {
-    alert("Funcionando")
-  }
-
   XD = ""
-  tredings = [1, 2, 3, 4, 5]
+  tredings = Store.tredings
   Store = Store
 }
 </script>

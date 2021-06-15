@@ -1,7 +1,7 @@
 <template>
     <v-container fluid class="pa-0 ma-0">
         <v-row no-gutters>
-            <v-col cols="8">
+            <v-col cols="8" v-if="(user != null) && (user != undefined)">
                 <v-row no-gutters class="white" style="position: sticky; top: 0; z-index: 1;">
                     <v-col cols="12">
                         <div class="d-flex align-center mx-3 my-1">
@@ -13,6 +13,7 @@
                                 <span class="font-weight-bold text-h6">{{user.username}}</span>
                                 <span class="text--secondary">10 tweets</span>
                             </div>
+
                         </div>
                         <v-divider/>
                     </v-col>
@@ -38,7 +39,6 @@
 
                 <v-row no-gutters>
                     <div class="full-width mx-8">
-
                         <div class="d-flex flex-column">
                             <span class="font-weight-black text-h5">{{user.username}}</span>
                             <span class="text--secondary">@{{user.tag}}</span>
@@ -75,9 +75,15 @@
                             <v-divider/>
 
                             <v-tab-item>
-                                <div v-for="(tweet, key) in tweets" :key="key">
-                                    <TweetComponent :tweet="tweet"/>
+                                <div>
+                                    <v-card height="500px"></v-card>
+                                    <div>
+                                        I'm LOL XDDD
+                                    </div>
                                 </div>
+                                <!--div v-for="(tweet, key) in tweets" :key="key">
+                                    <TweetComponent :tweet="tweet"/>
+                                </div-->
                             </v-tab-item>
 
                             <v-tab-item>
@@ -98,7 +104,55 @@
                 </v-row>
             </v-col>
 
-            <v-col cols="4">        
+            <v-col cols="8" v-if="(user == null)">
+                <v-row no-gutters class="white" style="position: sticky; top: 0; z-index: 1;">
+                    <v-col cols="12">
+                        <div class="d-flex align-center mx-3 my-1">
+                            <v-btn icon x-large>
+                                <v-icon color="blue"> mdi-arrow-left </v-icon>
+                            </v-btn>
+                            
+                            <div class="d-flex flex-column mx-5">
+                                <span class="font-weight-bold text-h6">Perfil</span>
+                            </div>
+
+                        </div>
+                        <v-divider/>
+                    </v-col>
+                </v-row>
+
+                <v-row no-gutters class="ma-0">
+                        <v-img class="info" width="100%" height="250px"></v-img>
+                </v-row>
+
+                <v-row no-gutters>
+                    <div class="d-flex align-center full-width">
+                        <v-avatar size="180px" style="margin-top: -90px; border: 3px solid white;" class="mx-5" rounded="50%">
+                            <v-img class="info"/>
+                        </v-avatar>
+                    </div>
+                </v-row>
+
+                <v-row no-gutters>
+                    <div class="full-width mx-8">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-black text-h5">@{{$route.params.userTag}}</span>
+                        </div>
+                    </div>
+                </v-row>
+
+                <v-divider class="my-3"/>
+                
+                <v-row no-gutters>
+                    <div class="full-width text-center d-flex flex-column">
+                        <span class="font-weight-black text-h5">Esta cuenta no existe.</span>
+                        <span class="text--secondary">Intenta hacer otra busqueda.</span>
+                    </div>
+                </v-row>
+            </v-col>
+
+            <v-col cols="4">
+                lol
             </v-col>
         </v-row>
 
@@ -106,7 +160,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue, Watch } from "vue-property-decorator"
 import UserService from "@/services/UserService"
 import TweetService from "@/services/TweetService"
 
@@ -121,7 +175,7 @@ import { Tweet } from "@/model/Tweet"
 export default class ProfileUser extends Vue {
 
     tab: any = null
-
+    user: User | null | undefined = undefined
     tweets: Tweet[] = []
 
     tabs: any = {
@@ -130,10 +184,19 @@ export default class ProfileUser extends Vue {
         "media": { title: "Fotos y videos" },
         "likes": { title: "Me gusta" }
     }
-    user: User = new User()
 
     created() {
         UserService.findByUserTag(this, this.$route.params.userTag)
+        console.log(this.user)
     }
+
+    @Watch('user')
+    onUserChanged () {
+        if (this.user == undefined) {
+            console.log("User does not exists.")
+        }
+    }
+
+
 }
 </script>

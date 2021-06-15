@@ -1,4 +1,4 @@
-import Store from "@/assets/Store.json"
+import Tweets from "@/assets/data/Tweets.json"
 import { Tweet } from "@/model/Tweet"
 import Vue from "vue"
 import JsonTool from "./tool/JsonTool"
@@ -8,13 +8,13 @@ export default class TweetService {
     static findTweetsByUserId(component: Vue, id: number) {
         let tweetList: Tweet[] = []
 
-        Store.tweets.forEach(tweet => {
+        Tweets.forEach(tweet => {
             if (tweet.userId == id) {
                 tweetList.push(tweet)
             }
         })
         
-        //@ts-ignorew
+        //@ts-ignore
         component.tweets = tweetList
     }
 }

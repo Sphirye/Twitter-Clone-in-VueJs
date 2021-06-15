@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue, Watch } from "vue-property-decorator"
 import NavigationDrawerComponent from "./components/NavigationDrawerComponent.vue"
 import UserService from "@/services/UserService"
 
@@ -22,10 +22,15 @@ import UserService from "@/services/UserService"
 })
 
 export default class App extends Vue {
+    
 }
 </script>
 
 <style>
+.ps {
+    height: 800px;
+}
+
 .full-width{
   width: 100%;
 }
@@ -35,3 +40,6 @@ export default class App extends Vue {
 }
 
 </style>
+
+
+<style src="vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css"/>

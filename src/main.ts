@@ -7,9 +7,11 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
 import axios from 'axios'
 import vueAxios from 'vue-axios'
+import perfectScrollbar from 'vue2-perfect-scrollbar'
 
 Vue.config.productionTip = false
 
+Vue.use(perfectScrollbar)
 Vue.use(vueAxios, axios)
 
 new Vue({

@@ -59,7 +59,7 @@
 
         </div>
 
-        <div v-for="(item, key) in Store.tweets" :key="key">
+        <div v-for="(item, key) in tweets" :key="key">
           <TweetComponent :tweet="item"/>
         </div>
       </v-col>
@@ -84,8 +84,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
 import TweetComponent from '../components/TweetComponent.vue'
-import TredingsComponent from "@/components/TredingsComponent.vue";
-import Store from '@/assets/Store.json'
+import TredingsComponent from "@/components/TredingsComponent.vue"
+import { Tweet } from "@/model/Tweet"
+
+import Tweets from '@/assets/data/Tweets.json'
+import Tredings from '@/assets/data/Tredings.json'
+
 
 @Component({
   components: { TweetComponent, TredingsComponent }
@@ -94,7 +98,7 @@ import Store from '@/assets/Store.json'
 export default class Home extends Vue {
 
   XD = ""
-  tredings = Store.tredings
-  Store = Store
+  tweets: Tweet[] = Tweets
+  tredings = Tredings
 }
 </script>

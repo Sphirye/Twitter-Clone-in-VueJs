@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer permanent stateless app width="100px" class="grey-margin-right">
+    <v-navigation-drawer :permanent="$vuetify.breakpoint.smAndUp" app width="100px">
         <v-layout column fill-height>
             <v-list dense>
 
@@ -9,12 +9,19 @@
                     </v-btn>
                 </v-list-item>
                 
-                <v-list-item v-for="(button, key) in sidebarIcons" class="ma-1 d-flex justify-center" :key="key">
+                <v-list-item v-for="(button, key) in navIcons" class="ma-1 d-flex justify-center" :key="key">
                     <router-link class="text-decoration-none" :to="`${button.target}`">
                         <v-btn icon large>
                             <v-icon>{{button.icon}}</v-icon>
                         </v-btn>
                     </router-link>
+
+                </v-list-item>
+
+                <v-list-item class="ma-1 d-flex justify-center">
+                    <v-btn icon class="pa-7 blue">
+                        <v-icon color="white">mdi-feather</v-icon>
+                    </v-btn>
                 </v-list-item>
             </v-list>
         </v-layout>
@@ -22,14 +29,20 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue, Watch } from "vue-property-decorator"
 
 @Component({
   components: {  },
 })
 
 export default class SidebarComponent extends Vue{
-    sidebarIcons = [
+
+    @Watch('this.$vuetify.breakpoint')
+    onBreakpointChanged() {
+        console.log(this.$vuetify.breakpoint)
+    }
+
+    navIcons = [
 		{ icon: "mdi-home", target: "/home" },
 		{ icon: "mdi-pound", target: "/home" },
 		{ icon: "mdi-bell", target: "/home" },
@@ -40,9 +53,3 @@ export default class SidebarComponent extends Vue{
 }
 
 </script>
-
-<style>
-.grey-margin-right{
-    border-right: 1px solid #c2c2c2;
-}
-</style>

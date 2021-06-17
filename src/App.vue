@@ -1,7 +1,7 @@
 <template>
   <v-app>
-      <BottomNavigationComponent class="d-flex d-sm-none"/>
-      <NavigationDrawerComponent/>
+      <NavigationDrawerComponent v-if="$vuetify.breakpoint.smAndUp"/>
+      <BottomNavigationComponent v-if="$vuetify.breakpoint.xs"/>
     <v-main>
       
 

@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer :permanent="$vuetify.breakpoint.smAndUp" app width="100px">
+    <v-navigation-drawer :permanent="$vuetify.breakpoint.width > 500" app width="100px">
         <v-layout column fill-height>
             <v-list dense>
 
@@ -8,14 +8,13 @@
                         <v-icon class="mdi-36px blue--text">mdi-twitter</v-icon>
                     </v-btn>
                 </v-list-item>
-                
+
                 <v-list-item v-for="(button, key) in navIcons" class="ma-1 d-flex justify-center" :key="key">
                     <router-link class="text-decoration-none" :to="`${button.target}`">
                         <v-btn icon large>
                             <v-icon>{{button.icon}}</v-icon>
                         </v-btn>
                     </router-link>
-
                 </v-list-item>
 
                 <v-list-item class="ma-1 d-flex justify-center">
@@ -36,11 +35,6 @@ import { Component, Vue, Watch } from "vue-property-decorator"
 })
 
 export default class SidebarComponent extends Vue{
-
-    @Watch('this.$vuetify.breakpoint')
-    onBreakpointChanged() {
-        console.log(this.$vuetify.breakpoint)
-    }
 
     navIcons = [
 		{ icon: "mdi-home", target: "/home" },

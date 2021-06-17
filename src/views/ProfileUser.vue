@@ -1,7 +1,7 @@
 <template>
     <v-container fluid class="pa-0 ma-0">
         <v-row no-gutters>
-            <v-col cols="12" sm="8" v-if="(user != null) && (user != undefined)">
+            <v-col cols="12" md="8" v-if="(user != null) && (user != undefined)">
                 <v-row no-gutters class="white" style="position: sticky; top: 0; z-index: 1;">
                     <v-col cols="12">
                         <div class="d-flex align-center mx-3 my-1">
@@ -104,7 +104,7 @@
                 </v-row>
             </v-col>
 
-            <v-col cols="12" sm="8" v-if="(user == null)">
+            <v-col cols="12" md="8" v-if="(user == null)">
                 <v-row no-gutters class="white" style="position: sticky; top: 0; z-index: 1;">
                     <v-col cols="12">
                         <div class="d-flex align-center mx-3 my-1">
@@ -151,7 +151,7 @@
                 </v-row>
             </v-col>
 
-            <v-col cols="4" v-if="!$vuetify.breakpoint.xs">
+            <v-col cols="4" v-if="$vuetify.breakpoint.mdAndUp">
                 <div>XD</div>
                 lol
             </v-col>

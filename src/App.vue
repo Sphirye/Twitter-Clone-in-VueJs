@@ -1,10 +1,8 @@
 <template>
   <v-app>
+    <v-main>
       <NavigationDrawerComponent v-if="$vuetify.breakpoint.smAndUp"/>
       <BottomNavigationComponent v-if="$vuetify.breakpoint.xs"/>
-    <v-main>
-      
-
 
       <router-view/>
 

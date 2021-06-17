@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <v-row no-gutters>
-      <v-col cols="12" sm="8" class="grey lighten-2">
+      <v-col cols="12" md="8" class="grey lighten-2">
 
         <v-col style="position: sticky; top: 0; z-index: 1;" cols="12" class="pa-0 white">
           <div class="pa-5">
@@ -66,7 +66,7 @@
 
       <v-divider style="z-index: 1;" vertical/>
 
-      <v-col cols="4" v-if="!$vuetify.breakpoint.xs">
+      <v-col cols="4" v-if="$vuetify.breakpoint.mdAndUp">
         <div class="d-flex align-center justify-center">
           <v-text-field :value="XD" placeholder="Buscar en Twitter..." outlined rounded prepend-inner-icon="mdi-magnify" class="mt-3 mx-2">
             

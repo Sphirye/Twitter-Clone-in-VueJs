@@ -3,60 +3,70 @@
     "id": 1,
     "username": "Leanne Graham",
     "tag": "Bret",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_1.png"
   },
   {
     "id": 2,
     "username": "Ervin Howell",
     "tag": "Antonette",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_2.png"
   },
   {
     "id": 3,
     "username": "Clementine Bauch",
     "tag": "Samantha",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_3.png"
   },
   {
     "id": 4,
     "username": "Patricia Lebsack",
     "tag": "Karianne",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_4.png"
   },
   {
     "id": 5,
     "username": "Chelsey Dietrich",
     "tag": "Kamren",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_5.png"
   },
   {
     "id": 6,
     "username": "Mrs. Dennis Schulist",
     "tag": "Leopoldo_Corkery",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_6.png"
   },
   {
     "id": 7,
     "username": "Kurtis Weissnat",
     "tag": "Elwyn.Skiles",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_7.png"
   },
   {
     "id": 8,
     "username": "Nicholas Runolfsdottir V",
     "tag": "Maxime_Nienow",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_8.png"
   },
   {
     "id": 9,
     "username": "Glenna Reichert",
     "tag": "Delphine",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_9.png"
   },
   {
     "id": 10,
     "username": "Clementina DuBuque",
     "tag": "Moriah.Stanton",
-    "bio": "I used to be based"
+    "bio": "I used to be based",
+    "profilePhoto": "pfp_10.png"
   }
 ]

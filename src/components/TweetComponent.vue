@@ -3,28 +3,33 @@
 	<div>
 		<div class="d-flex">
 
-			<div class="my-2 ml-6 mr-2">
-				<v-avatar class="info"></v-avatar>
+			<div class="my-2 ml-6">
+				<router-link class="text-decoration-none" :to="user.tag">
+					<v-avatar class="info">
+						<v-img :src="require(`@/assets/data/images/${user.profilePhoto}`)"></v-img>
+					</v-avatar>
+				</router-link>
 			</div>
 
-			<div class="full-width">
-				<div class="d-flex my-2">
-					
+			<div class="full-width mt-2">
+				<div class="d-flex">
 					<div class="d-flex align-center mx-2">
-						<span class="mx-1 font-weight-bold">{{user.username}}</span>
-						<span class="text--secondary">@{{user.tag}}</span>
+						<router-link class="text-decoration-none" :to="user.tag">
+							<span class="mx-1 font-weight-bold grey--text text--darken-4">{{user.username}}</span>
+							<span class="text--secondary">@{{user.tag}}</span>
+						</router-link>
 					</div>	
 
 					<v-spacer/>	
 
-					<v-btn class="mx-5" icon>
+					<v-btn class="mx-5" small icon>
 						<v-icon> mdi-dots-horizontal </v-icon>
 					</v-btn>
 
 				</div>
 
 				<div style="width: 90%;">
-					<p class="mx-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptate eligendi iusto sapiente deserunt laudantium sequi molestias, molestiae optio quisquam consequuntur fuga pariatur veniam, beatae dignissimos voluptatem aliquam ex quia.</p>
+					<p class="mx-3">{{tweet.body}}</p>
 				</div>
 
 			</div>

@@ -11,4 +11,6 @@ export class User {
     tag?: string = undefined
     @JsonProperty("bio", String, true)
     bio?: string = undefined
+    @JsonProperty("profilePhoto", String, true)
+    profilePhoto?: string = undefined
 }

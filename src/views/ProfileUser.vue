@@ -5,7 +5,7 @@
                 <v-row no-gutters class="white" style="position: sticky; top: 0; z-index: 1;">
                     <v-col cols="12">
                         <div class="d-flex align-center mx-3 my-1">
-                            <v-btn icon x-large>
+                            <v-btn icon x-large @click="$router.go(-1)">
                                 <v-icon color="blue"> mdi-arrow-left </v-icon>
                             </v-btn>
                             
@@ -26,7 +26,7 @@
                 <v-row no-gutters>
                     <div class="d-flex align-center full-width">
                         <v-avatar size="180px" style="margin-top: -90px; border: 3px solid white;" class="mx-5" rounded="50%">
-                            <v-img class="info"/>
+                            <v-img :src="require(`@/assets/data/images/${user.profilePhoto}`)" class="info"/>
                         </v-avatar>
                         
                         <v-spacer/>
@@ -188,7 +188,6 @@ export default class ProfileUser extends Vue {
 
     created() {
         UserService.findByUserTag(this, this.$route.params.userTag)
-        console.log(this.$vuetify.breakpoint)
     }
 
     @Watch('user')

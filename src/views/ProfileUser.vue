@@ -75,15 +75,9 @@
                             <v-divider/>
 
                             <v-tab-item>
-                                <div>
-                                    <v-card height="500px"></v-card>
-                                    <div>
-                                        I'm LOL XDDD
-                                    </div>
-                                </div>
-                                <!--div v-for="(tweet, key) in tweets" :key="key">
+                                <div v-for="(tweet, key) in tweets" :key="key">
                                     <TweetComponent :tweet="tweet"/>
-                                </div-->
+                                </div>
                             </v-tab-item>
 
                             <v-tab-item>
@@ -176,7 +170,7 @@ import { Tweet } from "@/model/Tweet"
 export default class ProfileUser extends Vue {
 
     tab: any = null
-    user: User | null | undefined = undefined
+    user: User | undefined = undefined
     tweets: Tweet[] = []
 
     tabs: any = {
@@ -187,14 +181,26 @@ export default class ProfileUser extends Vue {
     }
 
     created() {
-        UserService.findByUserTag(this, this.$route.params.userTag)
+        UserService.findByUserTag(this, this.$route.params.userTag).then(() => { })
+
+        if (this.user != undefined) { TweetService.findTweetsByUserId(this, this.user.id!) }
+        else { console.log("User does not exists.") }
+
     }
 
-    @Watch('user')
+
+
+    @Watch('user', { immediate: true })
     onUserChanged () {
-        if (this.user == undefined) {
+
+        /*if (this.user == undefined) {
             console.log("User does not exists.")
-        }
+        }*/
+
+
+        /*if ((this.user != undefined) && (this.user != null)) {
+            TweetService.findTweetsByUserId(this, this.user.id!)
+        }*/
     }
 
 

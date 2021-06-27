@@ -5,13 +5,13 @@ import { User } from "@/model/User"
 
 export default class UserService {
 
-    static findById(component: Vue, id: number) {
+    static async findById(component: Vue, id: number) {
         let response = UsersStore.find(user => user.id == id)
         // @ts-ignore
         component.user = JsonTool.deserializeObject(response, User)
     }
 
-    static findByUserTag(component: Vue, tag: string) {
+    static async findByUserTag(component: Vue, tag: string) {
         let response = UsersStore.find(user => user.tag.toLocaleLowerCase() == tag.toLocaleLowerCase())
         
         if (response != undefined) {
@@ -20,7 +20,7 @@ export default class UserService {
             component.user = convertedResponse
         } else {
             // @ts-ignore
-            component.user = null
+            component.user = undefined
         }
     }
 

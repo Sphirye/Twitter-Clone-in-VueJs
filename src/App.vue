@@ -42,6 +42,10 @@ export default class App extends Vue {
   height: 100%;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 </style>
 
 

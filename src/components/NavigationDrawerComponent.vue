@@ -10,11 +10,9 @@
                 </v-list-item>
 
                 <v-list-item v-for="(button, key) in navIcons" class="ma-1 d-flex justify-center" :key="key">
-                    <router-link class="text-decoration-none" :to="`${button.target}`">
-                        <v-btn icon large>
+                        <v-btn icon large @click="$router.push(`${button.target}`).catch((err) => {})">
                             <v-icon>{{button.icon}}</v-icon>
                         </v-btn>
-                    </router-link>
                 </v-list-item>
 
                 <v-list-item class="ma-1 d-flex justify-center">

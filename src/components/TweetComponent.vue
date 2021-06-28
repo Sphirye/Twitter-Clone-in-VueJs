@@ -6,20 +6,16 @@
 			<div class="d-flex">
 
 				<div class="my-2 ml-6">
-					<router-link class="text-decoration-none" :to="user.tag">
-						<v-avatar class="info">
-							<v-img :src="require(`@/assets/data/images/${user.profilePhoto}`)"></v-img>
-						</v-avatar>
-					</router-link>
+					<v-avatar class="info pointer" @click="$router.push(`${user.tag}`).catch((err) => { })">
+						<v-img :src="require(`@/assets/data/images/${user.profilePhoto}`)"></v-img>
+					</v-avatar>
 				</div>
 
 				<div class="full-width mt-2">
 					<div class="d-flex">
-						<div class="d-flex align-center mx-2">
-							<router-link class="text-decoration-none" :to="user.tag">
-								<span class="mx-1 font-weight-bold grey--text text--darken-4">{{user.username}}</span>
-								<span class="text--secondary">@{{user.tag}}</span>
-							</router-link>
+						<div class="d-flex align-center mx-2 pointer" @click="$router.push(`${user.tag}`).catch((err) => { })">
+							<span class="mx-1 font-weight-bold grey--text text--darken-4">{{user.username}}</span>
+							<span class="text--secondary">@{{user.tag}}</span>
 						</div>
 
 						<v-spacer/>	
